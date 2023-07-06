@@ -19,12 +19,13 @@ const Hero = () => {
 					containerStyles="bg-primary-blue text-white rounded-full mt-10"
 					handleClick={handleScroll}
 				/>
-				<div className="hero_image-container">
-					<div className="hero_image">
-						<Image src="/hero.png" alt="hero" fill className="object-contain" />
-						<div className="hero_image-overlay"></div>
-					</div>
+			</div>
+
+			<div className="hero_image-container">
+				<div className="hero_image">
+					<Image src="/hero.png" alt="hero" fill className="object-contain" />
 				</div>
+				<div className="hero_image-overlay"></div>
 			</div>
 		</div>
 	)
