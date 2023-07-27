@@ -3,12 +3,12 @@ import { fetchCars } from '@/utils';
 import Image from 'next/image';
 
 export default async function Home() {
-
+	//useEffect = useEffect is a React Hook that lets you synchronize a component with an external system.
+	//we don't need to use useEffect everytime
 	const allCars = await fetchCars();
 
 	const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
-	console.log(allCars, isDataEmpty)
 	return (
 		<main className="overflow-hidden ">
 			<Hero />

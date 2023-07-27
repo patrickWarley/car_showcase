@@ -11,8 +11,10 @@ export async function fetchCars() {
 			method: 'GET',
 			headers: headers
 		});
-		const result = request.json();
+		const result = await request.json();
+
 		return result;
+
 	} catch (error) {
 		console.log(error);
 	}
