@@ -4,6 +4,7 @@ import Image from 'next/image';
 import CustomButton from './CustomButton';
 import CarDetails from './CarDetails';
 import { useState } from 'react';
+import { generateCarImageUrl } from '@/utils';
 
 interface CarCardProps {
 	car: CarProps;
@@ -26,7 +27,7 @@ const CarCard = ({ car }: CarCardProps) => {
 			</div>
 
 			<div className="car-card_image">
-				<Image src="/hero.png" fill priority alt="car image" className='object-contain' />
+				<Image src={generateCarImageUrl(car)} fill priority alt="car image" className='object-contain' />
 			</div>
 
 			<div className="relative flex w-full mt-2 justify-center">
