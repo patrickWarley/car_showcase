@@ -1,11 +1,23 @@
 import { Hero, SearchBar, CustomFilter, CarCard } from '@/components';
+import { FilterProps } from '@/types';
 import { fetchCars } from '@/utils';
-import Image from 'next/image';
+import { yearsOfProduction, fuels } from '@/constants';
 
-export default async function Home() {
+interface props {
+	searchParams: FilterProps;
+}
+
+export default async function Home({ searchParams }: props) {
 	//useEffect = useEffect is a React Hook that lets you synchronize a component with an external system.
 	//we don't need to use useEffect everytime
-	const allCars = await fetchCars();
+
+	const allCars = await fetchCars({
+		manufacturer: searchParams.manufacturer || '',
+		year: searchParams.year || 2022,
+		fuel: searchParams.fuel || '',
+		limit: searchParams.limit || 10,
+		model: searchParams.model || '',
+	});
 
 	const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -20,8 +32,8 @@ export default async function Home() {
 				<div className="home_filters">
 					<SearchBar />
 					<div className="home_filter-container">
-						<CustomFilter title="fuel" />
-						<CustomFilter title="year" />
+						<CustomFilter title="fuel" options={fuels} />
+						<CustomFilter title="year" options={yearsOfProduction} />
 					</div>
 				</div>
 				{

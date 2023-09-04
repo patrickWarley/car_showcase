@@ -13,6 +13,20 @@ export interface CustomButtonProps {
 
 export interface CustomFilterProps {
 	title: string;
+	options: {
+		title: string;
+		value: string;
+	}[];
+}
+
+
+
+export interface FilterProps {
+	manufacturer: string;
+	model: string;
+	fuel: string;
+	year: number;
+	limit: number;
 }
 
 export interface SearchManufacturerProps {
