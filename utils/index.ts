@@ -8,7 +8,7 @@ const headers = {
 const url = (filters: FilterProps) => {
 	const { model, manufacturer, year, fuel, limit } = filters;
 
-	return `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}&make=${manufacturer}&year=${year}&fuel=${fuel}&limit=${limit}`;
+	return `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}&make=${manufacturer}&year=${year}&fuel_type=${fuel}&limit=${limit}`;
 }
 
 
@@ -41,4 +41,14 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 	url.searchParams.append('angle', `${angle || ''}`);
 
 	return `${url}`;
+}
+
+export const updateSearchParams = (type: string, value: string): string => {
+	const searchParams = new URLSearchParams(window.location.search);
+
+	searchParams.set(type, value);
+
+	const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+	return newPathname;
 }
