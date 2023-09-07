@@ -36,4 +36,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 =======
 # car_showcase
 Showcase of a project using next js
->>>>>>> dabfba7dc62ee8d0109048992eb74d30195c3450
+https://car-showcase-sand-six.vercel.app/
