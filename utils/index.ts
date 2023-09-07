@@ -20,7 +20,6 @@ export async function fetchCars(filters: FilterProps) {
 			headers: headers
 		});
 		const result = await request.json();
-
 		return result;
 
 	} catch (error) {

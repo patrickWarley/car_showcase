@@ -1,4 +1,4 @@
-import { Hero, SearchBar, CustomFilter, CarCard } from '@/components';
+import { Hero, SearchBar, CustomFilter, CarCard, ShowMore } from '@/components';
 import { FilterProps } from '@/types';
 import { fetchCars } from '@/utils';
 import { yearsOfProduction, fuels } from '@/constants';
@@ -41,6 +41,12 @@ export default async function Home({ searchParams }: props) {
 						<section>
 							<div className='home_cars-wrapper'>
 								{allCars.map((car) => <CarCard car={car} />)}
+							</div>
+							<div className='w-full flex justify-center mt-4'>
+								<ShowMore
+									pageNumber={(searchParams.limit || 10) / 10}
+									isNext={(searchParams.limit || 10) > allCars.length}
+								/>
 							</div>
 						</section>
 					) : (
